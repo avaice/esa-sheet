@@ -58,25 +58,27 @@ function App() {
   const todayEsa = getTodayEsa()
 
   return (
-    <>
-      <div>
-        <h1>今日の餌やり</h1>
-        <div>
-          <button onClick={() => ageruEsa({ timing: 'morning', count: 1 })}>
+    <div className='grid place-items-center h-dvh'>
+      <div className='flex flex-col gap-4 items-center'>
+        <h1 className='text-[32px] font-bold'>今日の餌やり</h1>
+        <div className='flex gap-4'>
+          <button className='shadow rounded-lg bg-white w-[150px] h-[80px] border border-gray-300 px-4 py-2 text-[40px] hover:bg-gray-100 active:bg-gray-200' onClick={() => ageruEsa({ timing: 'morning', count: 1 })}>
             朝: {todayEsa.morning}
           </button>
-          <button onClick={() => ageruEsa({ timing: "noon", count: 1 })}>
+          <button className='shadow rounded-lg bg-white w-[150px] h-[80px] border border-gray-300 px-4 py-2 text-[40px] hover:bg-gray-100 active:bg-gray-200' onClick={() => ageruEsa({ timing: "noon", count: 1 })}>
             昼: {todayEsa.noon}
           </button>
-          <button onClick={() => ageruEsa({ timing: 'night', count: 1 })}>
+          <button className='shadow rounded-lg bg-white w-[150px] h-[80px] border border-gray-300 px-4 py-2 text-[40px] hover:bg-gray-100 active:bg-gray-200' onClick={() => ageruEsa({ timing: 'night', count: 1 })}>
             夜: {todayEsa.night}
           </button>
         </div>
         <div>
-          <p>total: {todayEsa.morning + todayEsa.noon + todayEsa.night}</p>
+          <p>{
+            new Date().toISOString().slice(0, 10)
+          }の合計: {todayEsa.morning + todayEsa.noon + todayEsa.night}</p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
